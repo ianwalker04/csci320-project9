@@ -318,7 +318,7 @@ impl<
             Err(_) => return Err(FileSystemError::FileNotFound)
         }
         for i in 0..MAX_FILES_STORED {
-            let offset: usize = 8 + i * MAX_FILENAME_BYTES;
+            let offset: usize = MAX_FILENAME_BYTES + i * MAX_FILENAME_BYTES;
             if offset >= self.file_content_buffer.len() {
                 break;
             }
