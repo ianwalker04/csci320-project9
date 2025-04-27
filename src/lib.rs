@@ -299,7 +299,7 @@ impl<
             self.load_directory()?;
             let mut directory_array: [[u8; MAX_FILENAME_BYTES]; MAX_FILES_STORED] = [[0; MAX_FILENAME_BYTES]; MAX_FILES_STORED];
             for i in 0..num_files {
-                let offset: usize = 8 + i * MAX_FILENAME_BYTES;
+                let offset: usize = MAX_FILENAME_BYTES + i * MAX_FILENAME_BYTES;
                 for j in 0..MAX_FILENAME_BYTES {
                     directory_array[i][j] = self.file_content_buffer[offset + j];
                 }
